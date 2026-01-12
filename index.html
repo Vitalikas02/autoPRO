@@ -743,7 +743,6 @@
             }
             
             .header-contact {
-                width: 100%;
                 justify-content: space-between;
                 margin-top: 15px;
                 order: 5;
@@ -892,17 +891,12 @@
 
         @media (max-width: 769px) {
             .header-content {
-                /* flex-wrap: nowrap; */
+                flex-wrap: nowrap;
             }
             .header-contact {
-                /* position: absolute;
-                left: 70px; */
                 margin: 0;
                 padding: 0;
                 justify-content: center;
-                position: absolute;
-                display: block;
-                left: 80px;
             }
         }
 
@@ -975,7 +969,7 @@
     <!-- Шапка сайта -->
     <header>
         <div class="container">
-            <div class="header-content">
+            <div id="header-content" class="header-content">
                 <a href="#" class="header-logo">AUTOMATE PRO</a>
                 
                 <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -1260,17 +1254,17 @@
             // Мобильное меню
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mainNav = document.getElementById('main-nav');
-            const headerContact = document.getElementById('header-contact');
+            const headerContent = document.getElementById('header-content');
             
             if (mobileMenuBtn && mainNav) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mainNav.classList.toggle('active');
                     mobileMenuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
                     document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-                    headerContact.style.position = 'static';
-                    headerContact.style.display = 'flex';
+                    headerContent.style.flexWrap = 'wrap';
+                    headerContent.style.display = 'block';
                     if (mainNav.classList != 'active') {
-                        headerContact.removeAttribute('style');
+                        headerContent.removeAttribute('style');
                     }
                 });
                 
@@ -1292,7 +1286,7 @@
                             mainNav.classList.remove('active');
                             mobileMenuBtn.textContent = '☰';
                             document.body.style.overflow = '';
-                            headerContact.removeAttribute('style');
+                            headerContent.removeAttribute('style');
                         }
                     }
                 });
