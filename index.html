@@ -732,7 +732,6 @@
                 flex-direction: column;
                 gap: 15px;
                 padding: 20px 0;
-                border-top: 1px solid var(--border-color);
                 margin-top: 15px;
             }
             
@@ -749,7 +748,6 @@
                 margin-top: 15px;
                 order: 5;
                 padding-top: 15px;
-                border-top: 1px solid var(--border-color);
             }
             
             .header-logo {
@@ -894,11 +892,17 @@
 
         @media (max-width: 769px) {
             .header-content {
-                flex-wrap: nowrap;
+                /* flex-wrap: nowrap; */
             }
             .header-contact {
+                /* position: absolute;
+                left: 70px; */
                 margin: 0;
                 padding: 0;
+                justify-content: center;
+                position: absolute;
+                display: block;
+                left: 80px;
             }
         }
 
@@ -988,7 +992,7 @@
                     </ul>
                 </nav>
                 
-                <div class="header-contact">
+                <div id="header-contact" class="header-contact">
                     <div class="contact-phone">+7 (904) 087-25-12</div>
                     <a href="#subscription" class="header-button">Бесплатная консультация</a>
                 </div>
@@ -1256,12 +1260,18 @@
             // Мобильное меню
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mainNav = document.getElementById('main-nav');
+            const headerContact = document.getElementById('header-contact');
             
             if (mobileMenuBtn && mainNav) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mainNav.classList.toggle('active');
                     mobileMenuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
                     document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+                    headerContact.style.position = 'static';
+                    headerContact.style.display = 'flex';
+                    if (mainNav.classList != 'active') {
+                        headerContact.removeAttribute('style');
+                    }
                 });
                 
                 // Закрытие меню при клике на ссылку
@@ -1282,6 +1292,7 @@
                             mainNav.classList.remove('active');
                             mobileMenuBtn.textContent = '☰';
                             document.body.style.overflow = '';
+                            headerContact.removeAttribute('style');
                         }
                     }
                 });
