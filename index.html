@@ -2088,11 +2088,12 @@
         // Обработка кликов по кнопкам выбора пакета
         document.querySelectorAll('.package-button').forEach(button => {
             button.addEventListener('click', function() {
+                console.log(1)
                 const packageCard = this.closest('.package-card');
                 const packageTitle = packageCard.querySelector('h4').textContent;
-                const packagePrice = packageCard.querySelector('.package-price').textContent;
+                const packagePrice = packageCard.querySelector('.new-price').textContent;
                 
-                alert(`Вы выбрали: ${packageTitle}\n${packagePrice}\n\nНаш менеджер свяжется с вами для уточнения деталей.`);
+                alert(`Вы выбрали: ${packageTitle}\nза ${packagePrice}\n\nНаш менеджер свяжется с вами для уточнения деталей.`);
                 
                 // Прокрутка к форме заявки
                 const subscriptionSection = document.getElementById('subscription');
