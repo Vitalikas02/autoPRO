@@ -775,6 +775,137 @@
         border-radius: 50px;
         transition: all 0.3s;
     }
+
+        /* Стили для скидочных плашек */
+    .discount-badge {
+        position: absolute;
+        top: 15px;
+        right: -35px;
+        background: linear-gradient(45deg, #FF6B6B, #FF8E53, #FF6B6B);
+        color: white;
+        padding: 8px 40px;
+        transform: rotate(45deg);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        animation: discount-pulse 2s infinite;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .discount-badge::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        z-index: -1;
+    }
+    
+    /* Варианты скидочных плашек */
+    .discount-badge-1 {
+        background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+    }
+    
+    .discount-badge-2 {
+        background: linear-gradient(45deg, #4ECDC4, #44A08D);
+    }
+    
+    .discount-badge-3 {
+        background: linear-gradient(45deg, #9D50BB, #6E48AA);
+    }
+    
+    /* Стили для цен со скидкой */
+    .price-with-discount {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .old-price {
+        position: relative;
+        font-size: 1rem;
+        color: var(--gray-text);
+        text-decoration: line-through;
+        margin-right: 10px;
+        opacity: 0.7;
+    }
+    
+    .new-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FF6B6B;
+        text-shadow: 0 2px 4px rgba(255, 107, 107, 0.2);
+    }
+    
+    .discount-percent {
+        display: inline-block;
+        background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 10px;
+        vertical-align: middle;
+        animation: discount-bounce 2s infinite;
+    }
+    
+    /* Анимации */
+    @keyframes discount-pulse {
+        0%, 100% {
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        50% {
+            box-shadow: 0 4px 25px rgba(255, 107, 107, 0.6);
+        }
+    }
+    
+    @keyframes discount-bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-3px);
+        }
+    }
+    
+    @keyframes shine {
+        0% {
+            background-position: -100px;
+        }
+        100% {
+            background-position: 200px;
+        }
+    }
+    
+    /* Эффект сияния */
+    .discount-shine {
+        position: absolute;
+        top: 0;
+        left: -100px;
+        width: 50px;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transform: skewX(-20deg);
+        animation: shine 3s infinite;
+    }
+    
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
+        .discount-badge {
+            right: -40px;
+            padding: 6px 35px;
+            font-size: 0.8rem;
+        }
+        
+        .new-price {
+            font-size: 1.3rem;
+        }
+    }
     
     /* Эффекты наведения */
     .package-card:hover, .module-card:hover {
@@ -1521,14 +1652,20 @@
             <div class="packages-grid">
                 <!-- Пакет "СТАРТ" -->
                 <div class="package-card">
-                    <div class="package-header">
-                        <div class="package-title-row">
-                            <h4>ПАКЕТ «СТАРТ»</h4>
-                            <span class="package-badge">Популярный</span>
-                        </div>
-                        <p class="package-subtitle">Базовое представительство + запись</p>
-                        <div class="package-price">от 39 999 ₽</div>
+                    <div class="discount-badge discount-badge-1">-50%</div>
+                    <div class="discount-shine"></div>
+                
+                <div class="package-header">
+                    <div class="package-title-row">
+                        <h4>ПАКЕТ «СТАРТ»</h4>
                     </div>
+                    <p class="package-subtitle">Базовое представительство + запись</p>
+                    <div class="price-with-discount">
+                        <span class="old-price">79 999 ₽</span>
+                        <span class="new-price">39 999 ₽</span>
+                        <span class="discount-percent">-50%</span>
+                    </div>
+                </div>
                     
                     <ul class="package-features">
                         <li>Современный лендинг</li>
@@ -1541,18 +1678,21 @@
                 </div>
                 
                 <!-- Пакет "ПРОФЕССИОНАЛ" -->
-                <div class="package-card package-card-featured">
-                    <div class="package-featured-label">ВЫГОДНО</div>
-                    
-                    <div class="package-header">
-                        <div class="package-title-row">
-                            <h4>ПАКЕТ «ПРОФЕССИОНАЛ»</h4>
-                        </div>
-                        <p class="package-subtitle">Полная система под ключ</p>
-                        <div class="package-price">от 89 999 ₽</div>
+            <div class="package-card package-card-featured">
+                <div class="discount-badge discount-badge-2">-40%</div>
+                <div class="discount-shine"></div>
+                <div class="package-header">
+                    <div class="package-title-row">
+                        <h4>ПАКЕТ «ПРОФЕССИОНАЛ»</h4>
                     </div>
-                    
-                    <ul class="package-features">
+                    <p class="package-subtitle">Полная система под ключ</p>
+                    <div class="price-with-discount">
+                        <span class="old-price">149 999 ₽</span>
+                        <span class="new-price">89 999 ₽</span>
+                        <span class="discount-percent">-40%</span>
+                    </div>
+                </div>
+                        <ul class="package-features">
                         <li>Всё из пакета «СТАРТ»</li>
                         <li>Автоматизация записи</li>
                         <li>SMS/мессенджер-напоминания</li>
@@ -1564,16 +1704,22 @@
                 </div>
                 
                 <!-- Пакет "ВСЁ ВКЛЮЧЕНО" -->
-                <div class="package-card">
-                    <div class="package-header">
-                        <div class="package-title-row">
-                            <h4>ПАКЕТ «ВСЁ ВКЛЮЧЕНО»</h4>
-                        </div>
-                        <p class="package-subtitle">Для салонов и амбициозных мастеров</p>
-                        <div class="package-price">от 149 999 ₽</div>
+            <div class="package-card">
+                <div class="discount-badge discount-badge-3">-33%</div>
+                <div class="discount-shine"></div>
+                
+                <div class="package-header">
+                    <div class="package-title-row">
+                        <h4>ПАКЕТ «ВСЁ ВКЛЮЧЕНО»</h4>
                     </div>
-                    
-                    <ul class="package-features">
+                    <p class="package-subtitle">Для салонов и амбициозных мастеров</p>
+                    <div class="price-with-discount">
+                        <span class="old-price">194 999 ₽</span>
+                        <span class="new-price">149 999 ₽</span>
+                        <span class="discount-percent">-33%</span>
+                    </div>
+                </div>
+                        <ul class="package-features">
                         <li>Всё из пакета «ПРОФЕССИОНАЛ»</li>
                         <li>Полная CRM-система</li>
                         <li>Расширенная аналитика</li>
@@ -1584,16 +1730,6 @@
                     <button class="package-button">Выбрать пакет</button>
                 </div>
             </div>
-            
-            <!-- Обслуживание -->
-            <div class="maintenance-container">
-                <div class="maintenance-badge">
-                    <span class="maintenance-title">Ежемесячное обслуживание</span>
-                    <span class="maintenance-description">(хостинг, поддержка, консультации):</span>
-                    <span class="maintenance-price">от 2 999 ₽/мес.</span>
-                </div>
-            </div>
-        </div>
         
         <!-- Отдельные услуги -->
         <div class="modules-container">
