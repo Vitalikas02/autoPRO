@@ -487,6 +487,362 @@
             font-size: 0.95rem;
         }
 
+         /* Стили для блока прайс-листа */
+    #pricing {
+        padding: 80px 0;
+    }
+    
+    .pricing-description {
+        text-align: center;
+        color: var(--gray-text);
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+    
+    /* Готовые пакеты */
+    .packages-title, .modules-title {
+        text-align: center;
+        color: var(--primary-light);
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+    }
+    
+    .packages-container {
+        margin-bottom: 60px;
+    }
+    
+    .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    
+    .package-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 25px;
+        border: 1px solid var(--border-color);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .package-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+    
+    .package-card-featured {
+        transform: scale(1.05);
+        border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .package-card-featured::before {
+        background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    }
+    
+    .package-card:nth-child(3)::before {
+        background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    }
+    
+    .package-featured-label {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: var(--primary-color);
+        color: white;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 1;
+    }
+    
+    .package-header {
+        margin-bottom: 20px;
+    }
+    
+    .package-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .package-card h4 {
+        font-size: 1.3rem;
+        color: var(--light-text);
+        margin: 0;
+    }
+    
+    .package-badge {
+        background: rgba(59, 130, 246, 0.2);
+        color: var(--primary-light);
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+    
+    .package-subtitle {
+        color: var(--gray-text);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .package-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    
+    .package-features {
+        list-style: none;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+    
+    .package-features li {
+        color: var(--gray-text);
+        margin-bottom: 8px;
+        padding-left: 25px;
+        position: relative;
+        font-size: 0.9rem;
+    }
+    
+    .package-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+    
+    .package-button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1rem;
+    }
+    
+    .package-button-featured {
+        background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+    }
+    
+    /* Обслуживание */
+    .maintenance-container {
+        margin-top: 40px;
+        text-align: center;
+    }
+    
+    .maintenance-badge {
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        display: inline-block;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    .maintenance-title {
+        font-weight: 600;
+        color: var(--primary-light);
+    }
+    
+    .maintenance-description {
+        color: var(--gray-text);
+        margin: 0 10px;
+    }
+    
+    .maintenance-price {
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    
+    /* Прайс-лист */
+    .modules-description {
+        text-align: center;
+        color: var(--gray-text);
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+    
+    .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+        gap: 30px;
+    }
+    
+    .module-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 25px;
+        border: 1px solid var(--border-color);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s;
+    }
+    
+    .module-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .module-card h4 {
+        font-size: 1.2rem;
+        color: var(--light-text);
+        margin: 0;
+    }
+    
+    .module-badge {
+        background: rgba(59, 130, 246, 0.2);
+        color: var(--primary-light);
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+    
+    .module-content {
+        margin-bottom: 15px;
+    }
+    
+    .module-price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .module-includes {
+        color: var(--gray-text);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    
+    .module-comment {
+        background: rgba(16, 185, 129, 0.1);
+        border-left: 3px solid var(--secondary-color);
+        padding: 10px 15px;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .module-comment p {
+        color: var(--gray-text);
+        font-size: 0.85rem;
+        margin: 0;
+        font-style: italic;
+    }
+    
+    /* Призыв к действию */
+    .pricing-cta {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .cta-text {
+        color: var(--gray-text);
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s;
+    }
+    
+    /* Эффекты наведения */
+    .package-card:hover, .module-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.4);
+    }
+    
+    .package-card-featured:hover {
+        transform: translateY(-5px) scale(1.05);
+    }
+    
+    .package-button:hover, .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .packages-grid, .modules-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .package-card-featured {
+            transform: scale(1);
+        }
+        
+        .package-card-featured:hover {
+            transform: translateY(-5px) scale(1);
+        }
+        
+        #pricing {
+            padding: 60px 0;
+        }
+        
+        .package-featured-label {
+            right: -35px;
+        }
+        
+        .modules-grid {
+            gap: 20px;
+        }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .packages-grid, .modules-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .modules-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (min-width: 1025px) and (max-width: 1200px) {
+        .packages-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .package-card-featured {
+            transform: scale(1.03);
+        }
+        
+        .package-card-featured:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+    }
+
         /* Секция "Наши проекты" */
         .projects-grid {
             display: grid;
@@ -1153,6 +1509,192 @@
         </div>
     </section>
 
+    <!-- Секция "Прайс-лист" -->
+<section id="pricing">
+    <div class="container">
+        <h2>Прайс-лист</h2>
+        <p class="pricing-description">Прозрачные тарифы для автоматизации вашего бизнеса. Выбирайте готовый пакет или соберите свой из отдельных модулей.</p>
+        
+        <!-- Готовые пакеты -->
+        <div class="packages-container">
+            <h3 class="packages-title">Готовые пакеты</h3>
+            
+            <div class="packages-grid">
+                <!-- Пакет "СТАРТ" -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title-row">
+                            <h4>ПАКЕТ «СТАРТ»</h4>
+                            <span class="package-badge">Популярный</span>
+                        </div>
+                        <p class="package-subtitle">Базовое представительство + запись</p>
+                        <div class="package-price">от 40 000 ₽</div>
+                    </div>
+                    
+                    <ul class="package-features">
+                        <li>Современный лендинг</li>
+                        <li>Портфолио и услуги</li>
+                        <li>Базовая запись онлайн</li>
+                        <li>Интеграция с соцсетями</li>
+                    </ul>
+                    
+                    <button class="package-button">Выбрать пакет</button>
+                </div>
+                
+                <!-- Пакет "ПРОФЕССИОНАЛ" -->
+                <div class="package-card package-card-featured">
+                    <div class="package-featured-label">ВЫГОДНО</div>
+                    
+                    <div class="package-header">
+                        <div class="package-title-row">
+                            <h4>ПАКЕТ «ПРОФЕССИОНАЛ»</h4>
+                        </div>
+                        <p class="package-subtitle">Полная система под ключ</p>
+                        <div class="package-price">от 90 000 ₽</div>
+                    </div>
+                    
+                    <ul class="package-features">
+                        <li>Всё из пакета «СТАРТ»</li>
+                        <li>Автоматизация записи</li>
+                        <li>SMS/мессенджер-напоминания</li>
+                        <li>Настройка локального SEO</li>
+                        <li>Базовая аналитика</li>
+                    </ul>
+                    
+                    <button class="package-button package-button-featured">Выбрать пакет</button>
+                </div>
+                
+                <!-- Пакет "ВСЁ ВКЛЮЧЕНО" -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title-row">
+                            <h4>ПАКЕТ «ВСЁ ВКЛЮЧЕНО»</h4>
+                        </div>
+                        <p class="package-subtitle">Для салонов и амбициозных мастеров</p>
+                        <div class="package-price">от 150 000 ₽</div>
+                    </div>
+                    
+                    <ul class="package-features">
+                        <li>Всё из пакета «ПРОФЕССИОНАЛ»</li>
+                        <li>Полная CRM-система</li>
+                        <li>Расширенная аналитика</li>
+                        <li>Продвинутый маркетинг</li>
+                        <li>3 месяца поддержки</li>
+                    </ul>
+                    
+                    <button class="package-button">Выбрать пакет</button>
+                </div>
+            </div>
+            
+            <!-- Обслуживание -->
+            <div class="maintenance-container">
+                <div class="maintenance-badge">
+                    <span class="maintenance-title">Ежемесячное обслуживание</span>
+                    <span class="maintenance-description">(хостинг, поддержка, консультации):</span>
+                    <span class="maintenance-price">от 3 000 ₽/мес.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Отдельные услуги -->
+        <div class="modules-container">
+            <h3 class="modules-title">Отдельные модули</h3>
+            <p class="modules-description">Соберите свою идеальную систему автоматизации из отдельных модулей</p>
+            
+            <div class="modules-grid">
+                <!-- Модуль 1 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <h4>Базовый пакет "Цифровая визитка"</h4>
+                        <span class="module-badge">Обязательный минимум</span>
+                    </div>
+                    
+                    <div class="module-content">
+                        <div class="module-price">15 000 — 35 000 руб.</div>
+                        <p class="module-includes">
+                            <strong>Что входит:</strong> Современный лендинг на Tilda/Readymag (или легкой CMS) с адаптивным дизайном, портфолио, информация об услугах/ценах, контакты, интеграция с соцсетями, форма обратной связи.
+                        </p>
+                        <div class="module-comment">
+                            <p><strong>Комментарий:</strong> Это если очень просто и на конструкторе. Цена растет за уникальный, нешаблонный дизайн.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модуль 2 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <h4>Ключевой модуль "Автоматизация записи и напоминаний"</h4>
+                    </div>
+                    
+                    <div class="module-content">
+                        <div class="module-price">20 000 — 50 000 руб.</div>
+                        <p class="module-includes">
+                            <strong>Что входит:</strong> Интеграция профессиональной booking-системы (например, YClients, AlfaCRM, или самописное решение на основе Google Calendar/Telegram Bot API), настройка онлайн-записи на сайте, SMS/мессенджер-напоминания.
+                        </p>
+                        <div class="module-comment">
+                            <p><strong>Комментарий:</strong> Это самая ценная часть. Включите сюда настройку личного кабинета мастера на телефоне.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модуль 3 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <h4>Модуль "Виден в поиске" (Локальное SEO)</h4>
+                    </div>
+                    
+                    <div class="module-content">
+                        <div class="module-price">25 000 — 45 000 руб.</div>
+                        <p class="module-includes">
+                            <strong>Что входит:</strong> Полная настройка и верификация Google Business Profile и Яндекс.Справочника (фото, описание, услуги, Q&A), базовая SEO-оптимизация сайта (мета-теги, заголовки, скорость), написание 2-3 текстов для блога/услуг.
+                        </p>
+                        <div class="module-comment">
+                            <p><strong>Комментарий:</strong> Часто продают как отдельную услугу "вывод в топы локального поиска". Цена за первый месяц интенсивной работы, потом дешевле на поддержку.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модуль 4 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <h4>Модуль "Аналитика и маркетинг"</h4>
+                    </div>
+                    
+                    <div class="module-content">
+                        <div class="module-price">15 000 — 30 000 руб.</div>
+                        <p class="module-includes">
+                            <strong>Что входит:</strong> Установка и настройка Яндекс.Метрики/Google Analytics, настройка целей (отправка заявки, запись), создание простой промо-лендинга для акции, подключение email-рассылки (приветственные письма).
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Модуль 5 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <h4>Модуль "Техническая поддержка и хостинг" (Ежемесячно)</h4>
+                    </div>
+                    
+                    <div class="module-content">
+                        <div class="module-price">2 000 — 8 000 руб./месяц</div>
+                        <p class="module-includes">
+                            <strong>Что входит:</strong> Хостинг, домен, SSL, резервное копирование, безопасность, мелкие правки (обновить прайс, добавить работу в портфолио), консультации.
+                        </p>
+                        <div class="module-comment">
+                            <p><strong>Зависит от:</strong> объема правок и сложности проекта.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Призыв к действию -->
+            <div class="pricing-cta">
+                <p class="cta-text">Нужен индивидуальный расчет? Мы подберем оптимальное решение для вашего бизнеса!</p>
+                <a href="#subscription" class="cta-button">Получить индивидуальный расчет</a>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Секция "Наши проекты" -->
     <section id="projects">
         <div class="container">
@@ -1382,6 +1924,70 @@
                     logoContainer.style.pointerEvents = 'none';
                 }
             });
+
+             // Скрипт для анимации карточек прайс-листа
+    document.addEventListener('DOMContentLoaded', function() {
+        // Анимация появления карточек
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Наблюдаем за карточками прайс-листа
+        document.querySelectorAll('.package-card, .module-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease';
+            priceObserver.observe(card);
+        });
+        
+        // Обработка кликов по кнопкам выбора пакета
+        document.querySelectorAll('.package-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const packageCard = this.closest('.package-card');
+                const packageTitle = packageCard.querySelector('h4').textContent;
+                const packagePrice = packageCard.querySelector('.package-price').textContent;
+                
+                alert(`Вы выбрали: ${packageTitle}\n${packagePrice}\n\nНаш менеджер свяжется с вами для уточнения деталей.`);
+                
+                // Прокрутка к форме заявки
+                const subscriptionSection = document.getElementById('subscription');
+                if (subscriptionSection) {
+                    window.scrollTo({
+                        top: subscriptionSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Обработка клика по кнопке индивидуального расчета
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#subscription') {
+                    e.preventDefault();
+                    
+                    const subscriptionSection = document.getElementById('subscription');
+                    if (subscriptionSection) {
+                        window.scrollTo({
+                            top: subscriptionSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
